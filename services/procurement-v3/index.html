@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="../../vendor/lenis.css" />
   <link rel="stylesheet" href="../../css/style.css?v=53" />
   <link rel="stylesheet" href="../../css/services.css?v=9" />
-  <link rel="stylesheet" href="../../css/services-v3.css?v=2" />
+  <link rel="stylesheet" href="../../css/services-v3.css?v=3" />
 </head>
 <body class="page-svc page-sv3">
 
@@ -186,25 +186,33 @@
          (or focusing) a stage in the ticker turns it to that stage.
          ===================================================== -->
     <section class="sv-cycle" id="lifecycle" data-nav="dark">
-      <div class="sv-cycle__gl" id="svGl" aria-hidden="true"></div>
+      <div class="sv-comp" id="svComp" aria-hidden="true">
+        <div class="sv-comp__world" id="svCompWorld">
+          <span class="sv-comp__shadow" id="svCompShadow"></span>
+          <img class="sv-comp__img" id="svCompAsm" src="../../assets/img/svc/comp-assembled.png" alt="" />
+          <img class="sv-comp__img sv-comp__layer" data-cx="528" data-cy="384" data-cz="-90" src="../../assets/img/svc/comp-layer-l.png" alt="" />
+          <img class="sv-comp__img sv-comp__layer" data-cx="709" data-cy="423" data-cz="0" src="../../assets/img/svc/comp-layer-m.png" alt="" />
+          <img class="sv-comp__img sv-comp__layer" data-cx="897" data-cy="481" data-cz="110" src="../../assets/img/svc/comp-layer-r.png" alt="" />
+        </div>
+      </div>
       <span class="sv-cycle__shade" aria-hidden="true"></span>
       <div class="sv-ticker" id="svTicker">
         <ol class="sv-ticker__list" id="svTickerList">
-          <li><button type="button" data-i="0">Reduce Costs</button></li>
-          <li><button type="button" data-i="1">Manage Product Lifecycles</button></li>
+          <li><button type="button" data-i="0">Manage Product Lifecycles</button></li>
+          <li><button type="button" data-i="1" data-start>Reduce Costs</button></li>
           <li><button type="button" data-i="2">Navigate Obsolescence</button></li>
           <li><button type="button" data-i="3">Respond to Shortages</button></li>
           <li><button type="button" data-i="4">Consolidate Suppliers</button></li>
         </ol>
-        <svg class="sv-ticker__line" id="svTickerLine" viewBox="0 0 508 74" preserveAspectRatio="none" aria-hidden="true"><path d="M0 .5h265.9l5.5 13.7 16.6 42.8 5.7 16h214"/></svg>
+        <svg class="sv-ticker__line" id="svTickerLine" viewBox="0 0 560 74" aria-hidden="true"><path d="M0 1H244C272 1 284 12 293 30L302 50C310 66 322 73 350 73H560"/></svg>
       </div>
       <div class="sv-cycle__copy" aria-live="polite">
         <h2 class="sv-h2 sv-cycle__title" id="svStageTitle">Reduce costs</h2>
         <p class="sv-cycle__text" id="svStageText">Identify opportunities to reduce component acquisition costs and improve purchase price variance without compromising quality. Smith’s global market visibility helps you evaluate sourcing opportunities as pricing and availability change.</p>
       </div>
       <template id="svStages">
-        <li><b>Reduce costs</b><span>Identify opportunities to reduce component acquisition costs and improve purchase price variance without compromising quality. Smith’s global market visibility helps you evaluate sourcing opportunities as pricing and availability change.</span></li>
         <li><b>Manage product lifecycles</b><span>Plan sourcing from introduction through end of life with greater visibility into component availability and market conditions, and protect long-term production.</span></li>
+        <li><b>Reduce costs</b><span>Identify opportunities to reduce component acquisition costs and improve purchase price variance without compromising quality. Smith’s global market visibility helps you evaluate sourcing opportunities as pricing and availability change.</span></li>
         <li><b>Navigate obsolescence</b><span>Prepare for discontinued and End-of-Life components before they disrupt production, with Last-Time Buys and open-market sourcing when traditional channels can no longer supply.</span></li>
         <li><b>Respond to shortages</b><span>Access Smith’s global sourcing network when components become constrained, with rapid response backed by Smith’s quality processes.</span></li>
         <li><b>Consolidate suppliers</b><span>Bring fragmented supplier relationships through one trusted global partner, with less administrative complexity and broader access to components and expertise.</span></li>
@@ -218,7 +226,7 @@
          ===================================================== -->
     <section class="sv-proof" id="business" data-nav="light">
       <div class="sv-proof__inner">
-        <div class="sv-proof__media" id="svProofMedia" data-nav="dark"><img src="../../assets/img/svc/proof.jpg" alt="A Smith team member checking stock in the warehouse" /></div>
+        <div class="sv-proof__media" id="svProofMedia" data-nav="dark"><video src="../../assets/proof.mp4" poster="../../assets/proof-poster.jpg" autoplay muted loop playsinline preload="auto" aria-label="A Smith team member checking stock in the warehouse"></video></div>
         <div class="sv-proof__panel">
           <h2 class="sv-h2" id="bizTitle">Procurement built around your business.</h2>
           <div class="sv-metrics">
@@ -294,7 +302,7 @@
           <div class="cta__card cta__card--supply" data-nav="dark">
             <img class="cta__img" src="../../assets/img/svc/supply-chain.jpg" alt="" />
             <div class="cta__copy"><h2>Supply Chain Solutions</h2><p>Once the parts are secured, the question becomes how they move, where they are held, and what happens when the plan changes.</p></div>
-            <div class="cta__actions"><a href="#" class="btn btn--primary">Talk to an Expert</a><a href="#" class="btn btn--secondary btn--secondary-white"><span>Supply Chain Solutions</span></a></div>
+            <div class="cta__actions"><a href="#" class="btn btn--secondary btn--secondary-white"><span>Supply Chain Solutions</span></a></div>
           </div>
         </div>
       </div>
@@ -388,8 +396,7 @@
   <script src="../../vendor/gsap.min.js"></script>
   <script src="../../vendor/ScrollTrigger.min.js"></script>
   <script src="../../vendor/lenis.min.js"></script>
-  <script src="../../vendor/three.min.js"></script>
-  <script src="../../js/services-v3.js?v=2"></script>
+  <script src="../../js/services-v3.js?v=3"></script>
   <script src="../../js/nav-menu.js?v=6"></script>
 </body>
 </html>
