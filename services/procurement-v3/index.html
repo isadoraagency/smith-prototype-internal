@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <script>document.documentElement.classList.add("js")</script>
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Procurement Services (v3) — Smith</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="preload" href="../../assets/fonts/Gilroy-Regular.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="../../assets/fonts/Gilroy-Medium.woff2" as="font" type="font/woff2" crossorigin />
+
+  <link rel="stylesheet" href="../../vendor/lenis.css" />
+  <link rel="stylesheet" href="../../css/style.css?v=53" />
+  <link rel="stylesheet" href="../../css/services.css?v=9" />
+  <link rel="stylesheet" href="../../css/services-v3.css?v=2" />
+</head>
+<body class="page-svc page-sv3">
+
+  <!-- shared icon sprite -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-arrow" viewBox="0 0 16 16"><path d="M2.5 8h10.5M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+    <symbol id="i-mark" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="2.2" r="1.3"/><circle cx="16.85" cy="3.5" r="1.3"/><circle cx="20.4" cy="7.05" r="1.3"/><circle cx="21.7" cy="12" r="1.3"/><circle cx="20.4" cy="16.85" r="1.3"/><circle cx="16.85" cy="20.4" r="1.3"/><circle cx="12" cy="21.7" r="1.3"/><circle cx="7.05" cy="20.4" r="1.3"/><circle cx="3.5" cy="16.85" r="1.3"/><circle cx="2.2" cy="12" r="1.3"/><circle cx="3.5" cy="7.05" r="1.3"/><circle cx="7.05" cy="3.5" r="1.3"/><circle cx="14.15" cy="6.65" r="1.05"/><circle cx="17.25" cy="9.75" r="1.05"/><circle cx="17.25" cy="14.15" r="1.05"/><circle cx="14.15" cy="17.25" r="1.05"/><circle cx="9.75" cy="17.25" r="1.05"/><circle cx="6.65" cy="14.15" r="1.05"/><circle cx="6.65" cy="9.75" r="1.05"/><circle cx="9.75" cy="6.65" r="1.05"/><circle cx="12" cy="12" r="2"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><path d="M21 21H6.2c-1.1 0-1.7 0-2.1-.2a2 2 0 0 1-.9-.9C3 19.5 3 18.9 3 17.8V3m18 4-5.4 5.4c-.2.2-.3.3-.4.3h-.4c-.1 0-.2-.1-.4-.3l-1.9-1.9c-.2-.2-.3-.3-.4-.3h-.4c-.1 0-.2.1-.4.3L7 15m14-8h-4m4 0v4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  </svg>
+
+  <!-- =====================================================
+       HEADER — fixed nav (Nav Bar AA) + live market ticker
+       ===================================================== -->
+  <header class="header">
+    <div class="nav">
+      <div class="nav__brand">
+        <a href="../../" class="logo" aria-label="Smith home"><img src="../../assets/img/logo.svg" alt="Smith" width="120" height="41" /></a>
+        <nav class="switch" aria-label="Business unit">
+          <a class="switch__btn is-active" href="../../" aria-current="page">Electronics</a>
+          <a class="switch__btn" href="https://isadoraagency.github.io/smith-solar/" data-site-switch>
+            <!-- sun icon, from the Smith Solar nav toggle -->
+            <svg class="switch__icon" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M9 2.25V3.75M3.98559 5.48559L2.92493 4.42493M14.0143 5.48559L15.075 4.42493M4.5 11.25C4.5 8.76472 6.51472 6.75 9 6.75C11.4853 6.75 13.5 8.76472 13.5 11.25M4.5 11.25H13.5M4.5 11.25H1.5M13.5 11.25H16.5M14.25 14.25H3.75" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Solar
+          </a>
+        </nav>
+      </div>
+
+      <div class="nav__right">
+        <button type="button" class="nav__lang">EN <svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="m1 1 4 4 4-4"/></svg></button>
+        <button type="button" class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="siteMenu"><span class="menu-btn__label">Menu</span><svg class="menu-btn__open" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="menu-btn__close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+        <a href="#contact" class="cta">Talk to an Expert</a>
+      </div>
+    </div>
+
+    <!-- full-screen menu (sm-nav-desktop v2, state=open) — js/nav-menu.js -->
+    <div class="site-menu" id="siteMenu" role="dialog" aria-modal="true" aria-label="Menu" hidden data-lenis-prevent>
+      <div class="site-menu__inner">
+        <ul class="site-menu__primary" aria-label="Menu">
+            <li><button type="button" class="site-menu__item is-current" data-panel="services" aria-controls="panel-services">Services<svg class="site-menu__arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg></button></li>
+            <li><a href="#" class="site-menu__item">Products<svg class="site-menu__arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg></a></li>
+            <li><button type="button" class="site-menu__item" data-panel="industries" aria-controls="panel-industries">Industries<svg class="site-menu__arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg></button></li>
+            <li><a href="#" class="site-menu__item">Quality<svg class="site-menu__arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg></a></li>
+            <li><a href="#" class="site-menu__item">Market Intelligence<svg class="site-menu__arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg></a></li>
+            <li><button type="button" class="site-menu__item" data-panel="company" aria-controls="panel-company">Company<svg class="site-menu__arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg></button></li>
+            <li class="site-menu__login-row"><a href="#" class="site-menu__login"><svg class="site-menu__user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><circle cx="12" cy="8" r="4.2"/><path d="M4 21c.8-4.2 4-6.5 8-6.5s7.2 2.3 8 6.5"/></svg><span>Log in</span></a></li>
+        </ul>
+        <div class="site-menu__panels">
+          <div class="site-menu__panel" id="panel-services" data-panel="services" hidden>
+            <p class="site-menu__title">Services</p>
+            <ul><li><a href="../../services/procurement/" aria-current="page">Procurement<svg class="site-menu__arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg></a></li><li><a href="#">Supply Chain<svg class="site-menu__arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg></a></li><li><a href="#">Operational Capabilities<svg class="site-menu__arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg></a></li></ul>
+          </div>
+          <div class="site-menu__panel site-menu__panel--cols" id="panel-industries" data-panel="industries" hidden>
+            <p class="site-menu__title">Industries</p>
+            <ul><li><a href="../../industries/aerospace-defense/">Aerospace &amp; Defense<svg class="site-menu__arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg></a></li><li><a href="#">Automation<svg class="site-menu__arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg></a></li><li><a href="#">Automotive<svg class="site-menu__arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg></a></li><li><a href="#">Computing<svg class="site-menu__arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg></a></li><li><a href="#">Consumer Electronics<svg class="site-menu__arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg></a></li><li><a href="#">Data Centers<svg class="site-menu__arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg></a></li><li><a href="#">E-Commerce<svg class="site-menu__arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg></a></li><li><a href="#">Education<svg class="site-menu__arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg></a></li><li><a href="#">Gaming<svg class="site-menu__arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg></a></li><li><a href="#">IoT<svg class="site-menu__arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg></a></li><li><a href="#">Medical<svg class="site-menu__arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg></a></li><li><a href="#">Oil &amp; Gas<svg class="site-menu__arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg></a></li></ul>
+          </div>
+          <div class="site-menu__panel site-menu__panel--groups" id="panel-company" data-panel="company" hidden>
+            <p class="site-menu__title">Company</p>
+            <div class="site-menu__groups">
+              <div class="site-menu__group"><p class="site-menu__group-title">About Us</p><ul><li><a href="../../company/about/">Smith Advantage<svg class="site-menu__arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg></a></li><li><a href="#">Leadership<svg class="site-menu__arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg></a></li><li><a href="#">Locations<svg class="site-menu__arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg></a></li><li><a href="#">Careers<svg class="site-menu__arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg></a></li><li><a href="#">Newsroom<svg class="site-menu__arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg></a></li></ul></div>
+              <div class="site-menu__group"><p class="site-menu__group-title">Our Values</p><ul><li><a href="#">Corporate Social Responsibility<svg class="site-menu__arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg></a></li><li><a href="#">Sustainability<svg class="site-menu__arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg></a></li><li><a href="#">Structure &amp; Finance<svg class="site-menu__arrow" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg></a></li></ul></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+  <main id="main" class="sv">
+    <!-- one background for the whole story: its colour is scrubbed between
+         scenes (navy → paper → navy), so sections never meet at a hard edge -->
+    <div class="sv-bg" id="svBg" aria-hidden="true"></div>
+
+    <!-- =====================================================
+         01 — THE FIELD → CAPABILITIES → TODD (pinned)
+         The page opens on the component-testing photo, pulled back
+         among six capability cards floating at different depths.
+         Scrolling flies the camera to each card in turn: it fills
+         the centre of the screen while its caption is read, then the
+         camera moves on, and the last stop is Todd's portrait, which
+         opens to full screen for his quote.
+         Card positions are measured from Figma (sv2 / 02) in js.
+         ===================================================== -->
+    <section class="sv-intro" id="top" data-nav="dark">
+      <div class="sv-space" aria-hidden="true">
+        <div class="sv-world" id="svWorld">
+          <!-- data-fx/fy/fw: centre and width in the 1440 × 900 Figma frame -->
+          <div class="sv-card sv-card--hero" data-fx="720" data-fy="487" data-fw="438"><img src="../../assets/img/svc/testing.jpg" alt="" /><span class="sv-card__shade"></span></div>
+          <figure class="sv-card" data-cap="0" data-fx="343" data-fy="264" data-fw="150"><img src="../../assets/img/svc/business.jpg" alt="" /></figure>
+          <figure class="sv-card" data-cap="1" data-fx="1066" data-fy="618" data-fw="112"><img src="../../assets/img/globe.png" alt="" /></figure>
+          <figure class="sv-card" data-cap="2" data-fx="362" data-fy="695" data-fw="88"><img src="../../assets/img/ad/market.jpg" alt="" /></figure>
+          <figure class="sv-card" data-cap="3" data-fx="1104" data-fy="259" data-fw="72"><img src="../../assets/img/cta.jpg" alt="" /></figure>
+          <figure class="sv-card" data-cap="4" data-fx="496" data-fy="447" data-fw="56"><img src="../../assets/img/svc/supply-chain.jpg" alt="" /></figure>
+          <figure class="sv-card" data-cap="5" data-fx="949" data-fy="359" data-fw="46"><img src="../../assets/img/about/hero.jpg" alt="" /></figure>
+          <div class="sv-card sv-card--end" data-fx="720" data-fy="450" data-fw="34"><img src="../../assets/img/svc/leader.jpg" alt="" /></div>
+        </div>
+      </div>
+
+      <h1 class="sv-statement" id="svTitle">Procurement that keeps your business moving, whatever the market brings.</h1>
+
+      <!-- capability copy for the card at the centre of the screen -->
+      <div class="sv-caption" id="svCaption" aria-live="polite">
+        <h2 class="sv-caption__title" id="svCapTitle">Dedicated Trader</h2>
+        <p class="sv-caption__text" id="svCapText">One named person who knows your parts, your tolerances and your build schedule, and who pulls the other five in without you having to ask.</p>
+      </div>
+      <div class="sv-progress" id="svProgress" aria-hidden="true">
+        <span class="label"><b id="svCapN">01</b> / 06</span>
+        <ol class="sv-ticks" id="svTicks"><li></li><li></li><li></li><li></li><li></li><li></li></ol>
+      </div>
+
+      <!-- the portrait at the end of the flight opens to full screen and the quote lights up -->
+      <div class="sv-voice" id="leader">
+        <div class="sv-voice__media" id="svVoiceMedia"><img src="../../assets/img/svc/leader.jpg" alt="Todd Snow, Chief Procurement Officer, Smith" /><span class="sv-voice__shade" id="svVoiceShade"></span></div>
+        <figure class="sv-voice__content" id="svVoiceContent">
+          <blockquote class="sv-quote" id="svQuote">“Great procurement starts with understanding what matters to the customer. The stronger the relationship, the better we can anticipate change and act at the right moment to keep their business moving.”</blockquote>
+          <figcaption><b>Todd Snow</b><span>Chief Procurement Officer, Smith</span></figcaption>
+          <a href="#" class="sv-pill">
+            <span class="sv-pill__play" aria-hidden="true"><svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="16"/><path d="M13 10.5 22 16l-9 5.5z"/></svg></span>
+            <span>Watch Todd on Procurement</span><em>2 Min</em>
+          </a>
+        </figure>
+      </div>
+
+      <!-- read by screen readers and used when motion is reduced -->
+      <ul class="sv-caps" id="svCaps">
+        <li><b>Dedicated Trader</b><span>One named person who knows your parts, your tolerances and your build schedule, and who pulls the other five in without you having to ask.</span></li>
+        <li><b>Global Sourcing Network</b><span>Qualified sources across every major electronics market, so your trader can look beyond a single channel when availability tightens.</span></li>
+        <li><b>Market Intelligence</b><span>Pricing, lead-time and allocation signals from Smith’s analysts, turned into timing advice for your next buy.</span></li>
+        <li><b>Quality &amp; Testing</b><span>Parts are inspected and tested in Smith’s own accredited labs, against a plan written for the component and the application.</span></li>
+        <li><b>Advanced Logistics</b><span>Warehousing, consolidation and scheduled delivery that match how your production line actually runs.</span></li>
+        <li><b>Supplier Network</b><span>Supplier relationships built since 1984 and managed through a vendor rating and qualification system.</span></li>
+      </ul>
+    </section>
+
+
+    <!-- =====================================================
+         02 — ALWAYS ON (pinned)
+         The live clock tilts up out of the dark, its rings draw
+         in and the desks come online.
+         ===================================================== -->
+    <section class="sv-clock tz" id="time-zones" data-nav="dark">
+      <div class="sv-clock__inner">
+        <h2 class="sv-h2 sv-clock__title" id="tzTitle">The market doesn’t operate on one time zone. Neither does Smith.</h2>
+        <ul class="tz__offices sv-offices"><li class="tz-office" data-tz="America/Chicago"><i aria-hidden="true"></i><span>Houston</span><time>--:--</time></li><li class="tz-office" data-tz="Europe/Amsterdam"><i aria-hidden="true"></i><span>Amsterdam</span><time>--:--</time></li><li class="tz-office" data-tz="Asia/Hong_Kong"><i aria-hidden="true"></i><span>Hong Kong</span><time>--:--</time></li><li class="tz-office" data-tz="Asia/Singapore"><i aria-hidden="true"></i><span>Singapore</span><time>--:--</time></li><li class="tz-office" data-tz="Asia/Tokyo"><i aria-hidden="true"></i><span>Tokyo</span><time>--:--</time></li><li class="tz-office" data-tz="Asia/Seoul"><i aria-hidden="true"></i><span>Seoul</span><time>--:--</time></li></ul>
+        <div class="sv-clock__body">
+          <div class="sv-clock__dial-wrap" id="svDialWrap">
+            <div class="tz__clock sv-dial" id="svDial">
+              <svg class="tz__dial" viewBox="0 0 640 640" aria-hidden="true">
+                <circle class="tz__ring" cx="320" cy="320" r="150"/><circle class="tz__ring" cx="320" cy="320" r="180"/><circle class="tz__ring" cx="320" cy="320" r="210"/><circle class="tz__ring" cx="320" cy="320" r="240"/><circle class="tz__ring" cx="320" cy="320" r="270"/><circle class="tz__ring" cx="320" cy="320" r="300"/><circle class="tz__hours" data-i="0" cx="320" cy="320" r="150"/><circle class="tz__hours" data-i="1" cx="320" cy="320" r="180"/><circle class="tz__hours" data-i="2" cx="320" cy="320" r="210"/><circle class="tz__hours" data-i="3" cx="320" cy="320" r="240"/><circle class="tz__hours" data-i="4" cx="320" cy="320" r="270"/><circle class="tz__hours" data-i="5" cx="320" cy="320" r="300"/>
+                <line class="tz__hand" id="tzHand" x1="320" y1="320" x2="320" y2="20"/>
+                <circle class="tz__face" cx="320" cy="320" r="110"/>
+              </svg>
+              <div class="tz__readout"><b id="tzUtc">--:-- UTC</b><span id="tzDesks">— desks open</span></div>
+              <span class="tz__hour" style="left:50%;top:0">00</span><span class="tz__hour" style="left:100%;top:50%">06</span>
+              <span class="tz__hour" style="left:50%;top:100%">12</span><span class="tz__hour" style="left:0;top:50%">18</span>
+            </div>
+          </div>
+          <ul class="sv-checks"><li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5 8 14l8-8.5"/></svg><p>Stay connected to your Smith team through customer-facing technology and tools.</p></li><li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5 8 14l8-8.5"/></svg><p>Source through a sophisticated vendor rating and qualification system.</p></li><li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5 8 14l8-8.5"/></svg><p>Navigate unique buyer requirements and evolving government regulations.</p></li><li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5 8 14l8-8.5"/></svg><p>Draw on expertise across Procurement, Quality, Operations, IT, Accounting, Data Science and other Smith teams.</p></li></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         03 — THE LIFECYCLE (WebGL)
+         A circuit-board assembly, built in three.js, turns once for
+         every stage. It plays on its own while on screen; hovering
+         (or focusing) a stage in the ticker turns it to that stage.
+         ===================================================== -->
+    <section class="sv-cycle" id="lifecycle" data-nav="dark">
+      <div class="sv-cycle__gl" id="svGl" aria-hidden="true"></div>
+      <span class="sv-cycle__shade" aria-hidden="true"></span>
+      <div class="sv-ticker" id="svTicker">
+        <ol class="sv-ticker__list" id="svTickerList">
+          <li><button type="button" data-i="0">Reduce Costs</button></li>
+          <li><button type="button" data-i="1">Manage Product Lifecycles</button></li>
+          <li><button type="button" data-i="2">Navigate Obsolescence</button></li>
+          <li><button type="button" data-i="3">Respond to Shortages</button></li>
+          <li><button type="button" data-i="4">Consolidate Suppliers</button></li>
+        </ol>
+        <svg class="sv-ticker__line" id="svTickerLine" viewBox="0 0 508 74" preserveAspectRatio="none" aria-hidden="true"><path d="M0 .5h265.9l5.5 13.7 16.6 42.8 5.7 16h214"/></svg>
+      </div>
+      <div class="sv-cycle__copy" aria-live="polite">
+        <h2 class="sv-h2 sv-cycle__title" id="svStageTitle">Reduce costs</h2>
+        <p class="sv-cycle__text" id="svStageText">Identify opportunities to reduce component acquisition costs and improve purchase price variance without compromising quality. Smith’s global market visibility helps you evaluate sourcing opportunities as pricing and availability change.</p>
+      </div>
+      <template id="svStages">
+        <li><b>Reduce costs</b><span>Identify opportunities to reduce component acquisition costs and improve purchase price variance without compromising quality. Smith’s global market visibility helps you evaluate sourcing opportunities as pricing and availability change.</span></li>
+        <li><b>Manage product lifecycles</b><span>Plan sourcing from introduction through end of life with greater visibility into component availability and market conditions, and protect long-term production.</span></li>
+        <li><b>Navigate obsolescence</b><span>Prepare for discontinued and End-of-Life components before they disrupt production, with Last-Time Buys and open-market sourcing when traditional channels can no longer supply.</span></li>
+        <li><b>Respond to shortages</b><span>Access Smith’s global sourcing network when components become constrained, with rapid response backed by Smith’s quality processes.</span></li>
+        <li><b>Consolidate suppliers</b><span>Bring fragmented supplier relationships through one trusted global partner, with less administrative complexity and broader access to components and expertise.</span></li>
+      </template>
+    </section>
+
+    <!-- =====================================================
+         04 — PROOF (on paper)
+         The background turns to paper; the photo is revealed by a
+         mask rising from the bottom and the numbers count up.
+         ===================================================== -->
+    <section class="sv-proof" id="business" data-nav="light">
+      <div class="sv-proof__inner">
+        <div class="sv-proof__media" id="svProofMedia" data-nav="dark"><img src="../../assets/img/svc/proof.jpg" alt="A Smith team member checking stock in the warehouse" /></div>
+        <div class="sv-proof__panel">
+          <h2 class="sv-h2" id="bizTitle">Procurement built around your business.</h2>
+          <div class="sv-metrics">
+            <div class="sv-metric"><b data-to="1" data-pre="#">#1</b><div><h3>Independent Global Distributor</h3><p>Ranked by Supply Chain Connect 22 times since 2000.</p></div></div>
+            <div class="sv-metric"><b data-to="40" data-post="+">40+</b><div><h3>Years of Sourcing Expertise</h3><p>Electronic component sourcing since 1984.</p></div></div>
+            <div class="sv-metric"><b data-to="2024" data-from="1984">2024</b><div><h3>Pros to Know</h3><p>Lifetime Achievement recognition for COO Art Figueroa.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         05 — CONFIDENCE (pinned)
+         Back to night. The timeline slides under a fixed centre:
+         the step at the centre is highlighted and its text updates.
+         ===================================================== -->
+    <section class="sv-quality" id="quality" data-nav="dark">
+      <h2 class="sv-h2 sv-quality__title" id="confTitle">Confidence follows every component.</h2>
+      <div class="sv-line" aria-hidden="true">
+        <div class="sv-line__track" id="svTrack">
+          <span class="sv-line__base"></span><span class="sv-line__lit" id="svTrackLit"></span>
+          <span class="sv-step" data-i="0"><i></i><em>Source</em></span>
+          <span class="sv-step" data-i="1"><i></i><em>Inspect</em></span>
+          <span class="sv-step" data-i="2"><i></i><em>Test</em></span>
+          <span class="sv-step" data-i="3"><i></i><em>Verify</em></span>
+          <span class="sv-step" data-i="4"><i></i><em>Deliver</em></span>
+        </div>
+      </div>
+      <p class="sv-quality__text" id="svStepText" aria-live="polite">Parts come only from suppliers qualified through Smith’s vendor rating system, so every source is known before it is used.</p>
+      <a href="#" class="btn btn--secondary btn--secondary-white sv-quality__btn" id="svQualityBtn"><span>Explore Smith Quality</span></a>
+      <template id="svSteps">
+        <li><b>Source</b><span>Parts come only from suppliers qualified through Smith’s vendor rating system, so every source is known before it is used.</span></li>
+        <li><b>Inspect</b><span>Every part is inspected in Smith’s own accredited labs: markings, packaging and condition are checked against the manufacturer’s specification.</span></li>
+        <li><b>Test</b><span>Testing follows a plan written for the component and the application, not a generic checklist.</span></li>
+        <li><b>Verify</b><span>Results are verified against the original specification and documentation before a part is released.</span></li>
+        <li><b>Deliver</b><span>Approved parts ship on the schedule your production line runs to, across regions and time zones.</span></li>
+      </template>
+    </section>
+
+    <!-- =====================================================
+         06 — WHAT WE'RE WATCHING
+         ===================================================== -->
+    <section class="sv-watch" id="watching" data-nav="dark">
+      <div class="sv-watch__media" id="svWatchMedia"><img src="../../assets/img/svc/watching.jpg" alt="" /><span class="sv-watch__shade"></span></div>
+      <div class="sv-watch__inner">
+        <h2 class="sv-h2" id="watchTitle">What our procurement team is watching</h2>
+        <article class="mbyte sv-byte" id="svByte" data-nav="light">
+          <img class="mbyte__icon" src="../../assets/img/svc/icon-signal.svg" width="80" height="80" alt="" />
+          <div class="mbyte__content">
+            <div class="mbyte__meta"><span class="chip"><i></i>Global News Update</span><time datetime="2026-10-13">10.13.2026</time></div>
+            <h3>Last-Time Buy windows are closing earlier than published dates suggest</h3>
+            <p>Component lead times are compressing faster than official cutoffs, so teams should validate remaining inventory and place orders before the announced window closes.</p>
+            <a href="#" class="link">More Market Intelligence <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- =====================================================
+         07 — NEXT STEP
+         ===================================================== -->
+    <section class="frame svc-cta sv-cta" id="contact" data-nav="light" style="--fh:556">
+      <div class="frame__canvas">
+        <div class="cta__row">
+          <div class="cta__card cta__card--search" id="parts" data-nav="dark">
+            <div class="cta__copy"><h2>Looking for parts available now?</h2><p>Search Smith’s inventory by manufacturer or part number. If not listed, Procurement can source beyond inventory.</p></div>
+            <form class="cta-search" onsubmit="return false">
+              <label class="cta-search__field"><svg class="cta-search__icon" viewBox="0 0 20 20" aria-hidden="true"><circle cx="9" cy="9" r="6"/><path d="m14 14 4 4"/></svg><input type="search" placeholder="Manufacturer or Part Number" aria-label="Manufacturer or part number" /></label>
+              <button type="submit" class="btn btn--primary">Search</button>
+            </form>
+          </div>
+          <span class="board-dots board-dots--navy cta__dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          <div class="cta__card cta__card--supply" data-nav="dark">
+            <img class="cta__img" src="../../assets/img/svc/supply-chain.jpg" alt="" />
+            <div class="cta__copy"><h2>Supply Chain Solutions</h2><p>Once the parts are secured, the question becomes how they move, where they are held, and what happens when the plan changes.</p></div>
+            <div class="cta__actions"><a href="#" class="btn btn--primary">Talk to an Expert</a><a href="#" class="btn btn--secondary btn--secondary-white"><span>Supply Chain Solutions</span></a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- =====================================================
+         FOOTER  (sm-footer)
+         ===================================================== -->
+    <footer class="footer">
+      <div class="footer__cta">
+        <p class="footer__quote">Markets move overnight.<br />So do we.</p>
+
+        <!-- one-line circuit, same motif as the About section -->
+        <svg class="footer__circuit" viewBox="0 0 1440 80" aria-hidden="true">
+          <path class="footer__circuit-line" d="M-10 60 H360 C400 60 405 20 445 20 H980 C1020 20 1025 60 1065 60 H1450" />
+          <circle class="marker marker--red" cx="700" cy="20" r="12" />
+          <g transform="translate(1250 60) rotate(45)"><rect class="marker marker--blue" x="-8.5" y="-8.5" width="17" height="17" /></g>
+          <circle class="marker marker--white" cx="180" cy="60" r="12" />
+        </svg>
+      </div>
+
+      <div class="footer__info">
+        <img class="footer__logo" src="../../assets/img/logo.svg" alt="Smith" width="141" height="48" />
+        <div class="footer__address">
+          <h3>World Headquarters</h3>
+          <p>5306 Hollister Street <span>|</span> Houston, TX 77040 <span>|</span> <a href="tel:18004687866">1.800.468.7866</a></p>
+          <a href="#" class="link link--inverse">Global Locations <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+        <div class="footer__social">
+          <h3>Social Media</h3>
+          <ul>
+            <li><a href="#" aria-label="X"><svg viewBox="0 0 22 22" fill="currentColor" aria-hidden="true"><path d="M16.2 2.7H19L12.9 9.7l7.2 9.5h-5.6L10 13.4l-5 5.8H2.1l6.6-7.5-6.9-9h5.8l4 5.3 4.6-5.3Zm-1 14.9h1.6L6.7 4.3H5.1l10.1 13.3Z"/></svg></a></li>
+            <li><a href="#" aria-label="Facebook"><svg viewBox="0 0 22 22" fill="currentColor" aria-hidden="true"><path d="M12.3 19.2v-6.9h2.4l.4-2.7h-2.8V7.8c0-.8.3-1.3 1.4-1.3h1.5V4c-.3 0-1.1-.1-2.1-.1-2.2 0-3.6 1.3-3.6 3.7v2H7.3v2.7h2.2v6.9h2.8Z"/></svg></a></li>
+            <li><a href="#" aria-label="WeChat"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M9.5 4.5C5.9 4.5 3 6.9 3 9.9c0 1.7.9 3.2 2.4 4.2L4.8 16l2.3-1.2c.7.2 1.5.3 2.4.3l.5-.1a4.6 4.6 0 0 1-.2-1.3c0-3 2.8-5.3 6.3-5.3h.4c-.6-2.2-3.3-3.9-7-3.9z"/><path fill="currentColor" d="M21 13.8c0-2.4-2.4-4.3-5.3-4.3s-5.3 1.9-5.3 4.3 2.4 4.3 5.3 4.3c.6 0 1.2-.1 1.8-.3l1.9 1-.5-1.6c1.3-.8 2.1-2 2.1-3.4z"/><circle cx="7.3" cy="8.6" r=".9" fill="var(--eye)"/><circle cx="11.6" cy="8.6" r=".9" fill="var(--eye)"/><circle cx="14" cy="13" r=".75" fill="var(--eye)"/><circle cx="17.4" cy="13" r=".75" fill="var(--eye)"/></svg></a></li>
+            <li><a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="4.5"/><circle cx="12" cy="12" r="3.6"/><circle cx="16.9" cy="7.1" r="1" fill="currentColor" stroke="none"/></svg></a></li>
+            <li><a href="#" aria-label="LinkedIn"><svg viewBox="0 0 22 22" fill="currentColor" aria-hidden="true"><path d="M6.6 8.2h-3v10.1h3V8.2Z"/><circle cx="5.1" cy="5.05" r="1.75"/><path d="M9.1 8.2h2.8v1.5c.4-.9 1.5-1.8 3.2-1.8 2.9 0 3.5 1.9 3.5 4.4v6h-3v-5.2c0-1.1 0-2.7-1.7-2.7-1.8 0-1.9 1.3-1.9 2.7v5.2H9.1V8.2Z"/></svg></a></li>
+            <li><a href="#" aria-label="YouTube"><svg viewBox="0 0 22 22" fill="currentColor" aria-hidden="true"><path d="M19.7 6.5c-.1-.8-.8-1.4-1.6-1.6-1.5-.4-7.2-.4-7.2-.4s-5.6 0-7.1.4c-.8.2-1.5.8-1.7 1.6-.3 1.5-.3 4.4-.3 4.4s0 3 .3 4.4c.2.9.9 1.5 1.7 1.7 1.5.4 7.1.4 7.1.4s5.7 0 7.2-.4c.8-.2 1.5-.8 1.6-1.7.4-1.4.4-4.4.4-4.4s0-2.9-.4-4.4Z"/><path d="m9.1 13.7 4.8-2.7-4.8-2.8v5.5Z" fill="var(--eye)"/></svg></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__legal">
+        <ul>
+          <li><a href="#">Terms of Use and Privacy &amp; Cookies Policy</a></li>
+          <li><a href="#">Terms and Conditions of Sale</a></li>
+          <li><a href="#">Standards &amp; Commitments</a></li>
+          <li><a href="#">Fraud Prevention</a></li>
+        </ul>
+        <div class="footer__meta">
+          <span>© 2026 N.F. Smith &amp; Associates, L.P. All rights reserved.</span>
+          <span>Site by Isadora Agency</span>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- floating chat (sm-chat) -->
+  <button type="button" class="chat" id="chatBtn" aria-expanded="false" aria-controls="chatPanel">
+    <span class="chat__icon" aria-hidden="true"><svg><use href="#i-mark"/></svg></span>
+    Chat with Us
+  </button>
+
+  <section class="chat-panel" id="chatPanel" role="dialog" aria-label="Chat with Ana Souza" hidden>
+    <header class="chat-panel__head">
+      <span class="chat-panel__avatar" aria-hidden="true">AS</span>
+      <div class="chat-panel__who">
+        <h2>Ana Souza</h2>
+        <p>Account manager São Paulo · replies in minutes</p>
+      </div>
+      <button type="button" class="chat-panel__close" id="chatClose" aria-label="Close chat">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+    </header>
+    <div class="chat-panel__thread" id="chatThread" data-lenis-prevent>
+      <p class="msg msg--them">Hi, I’m Ana from Smith. Tell me which parts you need and I’ll check availability and pricing for you.</p>
+      <div class="chat-panel__quick" id="chatQuick">
+        <button type="button">Request a Quote</button>
+        <button type="button">Check Stock</button>
+        <button type="button">Talk to a Trader</button>
+      </div>
+    </div>
+    <form class="chat-panel__composer" id="chatForm">
+      <label class="sr-only" for="chatInput">Message</label>
+      <input id="chatInput" type="text" placeholder="Type a part number or question" autocomplete="off" />
+      <button type="submit" aria-label="Send"><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+    </form>
+  </section>
+
+
+  <script src="../../vendor/gsap.min.js"></script>
+  <script src="../../vendor/ScrollTrigger.min.js"></script>
+  <script src="../../vendor/lenis.min.js"></script>
+  <script src="../../vendor/three.min.js"></script>
+  <script src="../../js/services-v3.js?v=2"></script>
+  <script src="../../js/nav-menu.js?v=6"></script>
+</body>
+</html>
