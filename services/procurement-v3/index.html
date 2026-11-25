@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="../../vendor/lenis.css" />
   <link rel="stylesheet" href="../../css/style.css?v=53" />
   <link rel="stylesheet" href="../../css/services.css?v=9" />
-  <link rel="stylesheet" href="../../css/services-v3.css?v=4" />
+  <link rel="stylesheet" href="../../css/services-v3.css?v=5" />
 </head>
 <body class="page-svc page-sv3">
 
@@ -122,10 +122,11 @@
         <h2 class="sv-caption__title" id="svCapTitle">Dedicated Trader</h2>
         <p class="sv-caption__text" id="svCapText">One named person who knows your parts, your tolerances and your build schedule, and who pulls the other five in without you having to ask.</p>
       </div>
-      <div class="sv-progress" id="svProgress" aria-hidden="true">
-        <span class="label"><b id="svCapN">01</b> / 06</span>
-        <ol class="sv-ticks" id="svTicks"><li></li><li></li><li></li><li></li><li></li><li></li></ol>
-      </div>
+      <!-- click a tick (or use the arrow keys) to fly to that capability -->
+      <nav class="sv-progress" id="svProgress" aria-label="Capabilities">
+        <span class="label" aria-hidden="true"><b id="svCapN">01</b> / 06</span>
+        <ol class="sv-ticks" id="svTicks"><li><button type="button" data-i="0" aria-label="01 Dedicated Trader" aria-current="step"></button></li><li><button type="button" data-i="1" aria-label="02 Global Sourcing Network"></button></li><li><button type="button" data-i="2" aria-label="03 Market Intelligence"></button></li><li><button type="button" data-i="3" aria-label="04 Quality &amp; Testing"></button></li><li><button type="button" data-i="4" aria-label="05 Advanced Logistics"></button></li><li><button type="button" data-i="5" aria-label="06 Supplier Network"></button></li></ol>
+      </nav>
 
       <!-- the portrait at the end of the flight opens to full screen and the quote lights up -->
       <div class="sv-voice" id="leader">
@@ -396,7 +397,7 @@
   <script src="../../vendor/gsap.min.js"></script>
   <script src="../../vendor/ScrollTrigger.min.js"></script>
   <script src="../../vendor/lenis.min.js"></script>
-  <script src="../../js/services-v3.js?v=6"></script>
+  <script src="../../js/services-v3.js?v=7"></script>
   <script src="../../js/nav-menu.js?v=6"></script>
 </body>
 </html>
