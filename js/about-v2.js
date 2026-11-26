@@ -297,7 +297,7 @@ if (!reduceMotion) {
 /* ---------------------------------------------------------
    8. Recognition — the routes draw themselves as the section
       scrolls through, the nodes pop on, the award cards rise in
-      and drift at different speeds
+      onto their routes
    --------------------------------------------------------- */
 lightUp($('#recogTitle'));
 if (!reduceMotion) {
@@ -307,7 +307,6 @@ if (!reduceMotion) {
   gsap.from('.recog__all', { autoAlpha: 0, y: 16, duration: 0.7, ease: 'power2.out', scrollTrigger: { trigger: '.recog', start: 'top 60%' } });
   $$('.award').forEach((card, i) => {
     gsap.from(card, { y: 80, autoAlpha: 0, duration: 1, delay: i * 0.08, ease: 'power3.out', scrollTrigger: { trigger: '.recog', start: 'top 65%' } });
-    gsap.fromTo(card, { yPercent: 10 + i * 6 }, { yPercent: -(6 + i * 5), ease: 'none', scrollTrigger: { trigger: '.recog', start: 'top bottom', end: 'bottom top', scrub: true } });
     gsap.from(card.querySelector('.award__icon'), { rotate: -120, scale: 0.4, autoAlpha: 0, duration: 1, delay: 0.15 + i * 0.08, ease: 'expo.out', scrollTrigger: { trigger: '.recog', start: 'top 65%' } });
   });
 }
