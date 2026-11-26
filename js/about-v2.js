@@ -253,7 +253,7 @@ lightUp($('#glanceTitle'));
 $$('.stat__value').forEach((el) => {
   const to = parseFloat(el.dataset.count), dec = (el.dataset.count.split('.')[1] || '').length;
   const pre = el.dataset.pre, post = el.dataset.post;
-  const accent = (s) => (s === '$' || s === '#' || s === '×' ? `<b>${s}</b>` : s);
+  const accent = (s) => (s === '$' || s === '#' || s === '×' || s === '+' ? `<b>${s}</b>` : s);
   const paint = (v) => { el.innerHTML = accent(pre) + (dec ? v.toFixed(dec) : Math.round(v)) + accent(post); };
   if (reduceMotion || to <= 1) return;
   const o = { v: 0 };
