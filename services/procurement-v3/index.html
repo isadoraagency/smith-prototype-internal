@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="../../vendor/lenis.css" />
   <link rel="stylesheet" href="../../css/style.css?v=53" />
   <link rel="stylesheet" href="../../css/services.css?v=9" />
-  <link rel="stylesheet" href="../../css/services-v3.css?v=9" />
+  <link rel="stylesheet" href="../../css/services-v3.css?v=10" />
 </head>
 <body class="page-svc page-sv3">
 
@@ -218,6 +218,8 @@
          ===================================================== -->
     <section class="sv-proof" id="business" data-nav="light">
       <div class="sv-proof__inner">
+        <!-- the video opens full screen, then masks down into this slot (sv2 / 07) -->
+        <div class="sv-proof__slot" id="svProofSlot" aria-hidden="true"></div>
         <div class="sv-proof__media" id="svProofMedia" data-nav="dark"><video src="../../assets/proof.mp4" poster="../../assets/proof-poster.jpg" autoplay muted loop playsinline preload="auto" aria-label="A Smith team member checking stock in the warehouse"></video></div>
         <div class="sv-proof__panel">
           <h2 class="sv-h2" id="bizTitle">Procurement built around your business.</h2>
@@ -388,7 +390,7 @@
   <script src="../../vendor/gsap.min.js"></script>
   <script src="../../vendor/ScrollTrigger.min.js"></script>
   <script src="../../vendor/lenis.min.js"></script>
-  <script src="../../js/services-v3.js?v=14"></script>
+  <script src="../../js/services-v3.js?v=15"></script>
   <script src="../../js/nav-menu.js?v=6"></script>
 </body>
 </html>
