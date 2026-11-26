@@ -97,10 +97,10 @@ function swap(els, apply) {
 const scrollToStep = (st, from, i, n) => scrollToY(st.start + (st.end - st.start) * (from + (1 - from) * (i + 0.5) / n));
 
 /* ---------------------------------------------------------
-   4. Hero — the timeline is the hero (V1 timeline, reused):
-      the photos ride a 3D drum; scroll or drag rolls it and it
-      settles on a year, the year rolls like an odometer, the
-      index and the arrows jump to any year
+   4. Hero — the timeline is the hero (V1 drum, reused): it
+      autoplays through the years and the page scrolls on freely;
+      the arrows, the index, ←/→ and dragging the photos pick a
+      year, the year rolls like an odometer
    --------------------------------------------------------- */
 const heroTitle = $('#heroTitle');
 const heroWords = splitWords(heroTitle, true);
@@ -163,81 +163,86 @@ function setActive(i, instant) {
   } });
 }
 
-const drum = { c: 0 };      // driven by the scroll
+const drum = { c: 0 };      // the year in focus (fractional while rolling)
 const intro = { o: 0 };     // the entrance swing, added on top
 const draw = () => render(drum.c + intro.o);
 render(0);
 setActive(0, true);
 
-let tlSt = null;
 if (!reduceMotion) {
   // intro on load: the hero title rises word by word, the drum swings up from below
   gsap.timeline({ delay: 0.15 })
     .from(heroWords, { yPercent: 110, duration: 1.1, stagger: 0.05, ease: 'expo.out' })
     .from(intro, { o: -1.4, duration: 1.8, ease: 'expo.out', onUpdate: draw }, 0.1)
     .from('.dp__info > *, .dp-index li', { autoAlpha: 0, y: 24, duration: 0.8, stagger: 0.03, ease: 'power3.out' }, 0.4);
-
-  const roll = gsap.to(drum, { c: N - 1, ease: 'none', onUpdate: () => { draw(); setActive(Math.round(drum.c)); } });
-  tlSt = ScrollTrigger.create({
-    trigger: tl, start: 'top top', end: () => '+=' + Math.round((N - 1) * window.innerHeight * 0.45),
-    pin: true, scrub: 0.8, animation: roll, invalidateOnRefresh: true,
-  });
 }
 
-// jump to year i: scroll to its point of the pin
-const yFor = (i) => tlSt.start + (i / (N - 1)) * (tlSt.end - tlSt.start);
-function goTo(i) {
+// roll the drum to year i (the hero is not pinned: the page scrolls on freely)
+let roll = null;
+function goTo(i, opts = {}) {
   i = clamp(i, 0, N - 1);
-  if (!tlSt) { render(i); return setActive(i); }
-  scrollToY(yFor(i) + 1);
+  if (roll) roll.kill();
+  if (reduceMotion) { drum.c = i; draw(); setActive(i); return; }
+  const dist = Math.abs(i - drum.c);
+  roll = gsap.to(drum, {
+    c: i, duration: opts.duration || clamp(0.9 + dist * 0.12, 0.9, 2.2), ease: 'power3.inOut',
+    onUpdate: () => { draw(); setActive(Math.round(drum.c)); },
+  });
+  setActive(i);
+  if (!opts.auto) schedule();   // a visitor's choice restarts the countdown
 }
 prevBtn.addEventListener('click', () => goTo(active - 1));
 nextBtn.addEventListener('click', () => goTo(active + 1));
 idxItems.forEach((li, i) => li.querySelector('button').addEventListener('click', () => goTo(i)));
-document.addEventListener('keydown', (e) => {
-  if (!tlSt || !tlSt.isActive || (e.target.closest && e.target.closest('input, textarea'))) return;
-  if (e.key === 'ArrowDown' || e.key === 'ArrowRight') { e.preventDefault(); goTo(active + 1); }
-  if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') { e.preventDefault(); goTo(active - 1); }
-});
 
-// when scrolling stops inside the pin, settle on the nearest year
-// (no momentum: it always lands on the year closest to where you stopped)
-if (tlSt) {
-  ScrollTrigger.addEventListener('scrollEnd', () => {
-    if (!tlSt.isActive || stage.classList.contains('is-dragging')) return;
-    const p = (window.scrollY - tlSt.start) / (tlSt.end - tlSt.start);
-    const near = Math.round(clamp(p, 0, 1) * (N - 1));
-    if (Math.abs(window.scrollY - yFor(near)) > 4) scrollToY(yFor(near) + 1);
-  });
+/* autoplay: a new year every few seconds, looping back to 1984; it holds
+   while the hero is off screen, the tab is hidden, or a pointer rests on
+   the photos, the controls or the year list */
+const DWELL = 5000;
+let timer = 0, inView = true, hovering = false, dragging = false;
+function schedule() {
+  clearTimeout(timer);
+  if (reduceMotion || !inView || hovering || dragging || document.hidden) return;
+  timer = setTimeout(() => { goTo((active + 1) % N, { auto: true, duration: active === N - 1 ? 2.2 : 1.2 }); schedule(); }, DWELL);
 }
+ScrollTrigger.create({ trigger: tl, start: 'top bottom', end: 'bottom 30%', onToggle: (st) => { inView = st.isActive; schedule(); } });
+document.addEventListener('visibilitychange', schedule);
+[stage, $('.dp__controls', tl), $('.dp-index', tl)].forEach((el) => {
+  el.addEventListener('pointerenter', (e) => { if (e.pointerType === 'mouse') { hovering = true; clearTimeout(timer); } });
+  el.addEventListener('pointerleave', (e) => { if (e.pointerType === 'mouse') { hovering = false; schedule(); } });
+});
+document.addEventListener('keydown', (e) => {
+  if (!inView || (e.target.closest && e.target.closest('input, textarea'))) return;
+  if (e.key === 'ArrowRight') { e.preventDefault(); goTo(active + 1); }
+  if (e.key === 'ArrowLeft') { e.preventDefault(); goTo(active - 1); }
+});
+if (!reduceMotion) gsap.delayedCall(2.2, schedule);   // first move once the intro has played
 
 // drag the drum: pull up to move forward in time, release to settle on a year
-if (tlSt) {
-  let drag = null;
-  stage.addEventListener('pointerdown', (e) => {
-    drag = { y: e.clientY, scroll: window.scrollY, moved: 0 };
-    stage.setPointerCapture(e.pointerId);
-    stage.classList.add('is-dragging');
-  });
-  stage.addEventListener('pointermove', (e) => {
-    if (!drag) return;
-    const dy = drag.y - e.clientY;
-    drag.moved = Math.max(drag.moved, Math.abs(dy));
-    // one photo per ~380 screen px of drag
-    const perSlide = (tlSt.end - tlSt.start) / (N - 1);
-    const y = clamp(drag.scroll + dy * (perSlide / (380 * S())), tlSt.start, tlSt.end);
-    if (lenis) lenis.scrollTo(y, { immediate: true }); else window.scrollTo(0, y);
-  });
-  const release = () => {
-    if (!drag) return;
-    drag = null;
-    stage.classList.remove('is-dragging');
-    const p = (window.scrollY - tlSt.start) / (tlSt.end - tlSt.start);
-    goTo(Math.round(clamp(p, 0, 1) * (N - 1)));
-  };
-  stage.addEventListener('pointerup', release);
-  stage.addEventListener('pointercancel', release);
-}
+// (vertical swipes on touch still scroll the page; mouse drags roll the drum)
+let drag = null;
+stage.addEventListener('pointerdown', (e) => {
+  if (e.pointerType !== 'mouse') return;
+  drag = { y: e.clientY, c: drum.c };
+  dragging = true; clearTimeout(timer);
+  if (roll) roll.kill();
+  stage.setPointerCapture(e.pointerId);
+  stage.classList.add('is-dragging');
+});
+stage.addEventListener('pointermove', (e) => {
+  if (!drag) return;
+  const dy = drag.y - e.clientY;
+  drum.c = clamp(drag.c + dy / (380 * S()), 0, N - 1);   // one photo per ~380 canvas px of drag
+  draw(); setActive(Math.round(drum.c));
+});
+const release = () => {
+  if (!drag) return;
+  drag = null; dragging = false;
+  stage.classList.remove('is-dragging');
+  goTo(Math.round(drum.c));
+};
+stage.addEventListener('pointerup', release);
+stage.addEventListener('pointercancel', release);
 
 
 /* ---------------------------------------------------------
