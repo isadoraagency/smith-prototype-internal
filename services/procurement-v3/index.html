@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="../../vendor/lenis.css" />
   <link rel="stylesheet" href="../../css/style.css?v=53" />
   <link rel="stylesheet" href="../../css/services.css?v=9" />
-  <link rel="stylesheet" href="../../css/services-v3.css?v=6" />
+  <link rel="stylesheet" href="../../css/services-v3.css?v=7" />
 </head>
 <body class="page-svc page-sv3">
 
@@ -117,16 +117,17 @@
 
       <h1 class="sv-statement" id="svTitle">Procurement that keeps your business moving, whatever the market brings.</h1>
 
-      <!-- capability copy for the card at the centre of the screen -->
-      <div class="sv-caption" id="svCaption" aria-live="polite">
-        <h2 class="sv-caption__title" id="svCapTitle">Dedicated Trader</h2>
-        <p class="sv-caption__text" id="svCapText">One named person who knows your parts, your tolerances and your build schedule, and who pulls the other five in without you having to ask.</p>
+      <!-- two sets of three: each set's cards line up over these slots (js) while its copy reads -->
+      <div class="sv-set" aria-hidden="true">
+          <article class="sv-set__item"><div class="sv-set__slot"></div><h2 class="sv-set__title">Dedicated Trader</h2><p class="sv-set__text">One named person who knows your parts, your tolerances and your build schedule, and who pulls the other five in without you having to ask.</p></article>
+          <article class="sv-set__item"><div class="sv-set__slot"></div><h2 class="sv-set__title">Global Sourcing Network</h2><p class="sv-set__text">Qualified sources across every major electronics market, so your trader can look beyond a single channel when availability tightens.</p></article>
+          <article class="sv-set__item"><div class="sv-set__slot"></div><h2 class="sv-set__title">Market Intelligence</h2><p class="sv-set__text">Pricing, lead-time and allocation signals from Smith’s analysts, turned into timing advice for your next buy.</p></article>
       </div>
-      <!-- click a tick (or use the arrow keys) to fly to that capability -->
-      <nav class="sv-progress" id="svProgress" aria-label="Capabilities">
-        <span class="label" aria-hidden="true"><b id="svCapN">01</b> / 06</span>
-        <ol class="sv-ticks" id="svTicks"><li><button type="button" data-i="0" aria-label="01 Dedicated Trader" aria-current="step"></button></li><li><button type="button" data-i="1" aria-label="02 Global Sourcing Network"></button></li><li><button type="button" data-i="2" aria-label="03 Market Intelligence"></button></li><li><button type="button" data-i="3" aria-label="04 Quality &amp; Testing"></button></li><li><button type="button" data-i="4" aria-label="05 Advanced Logistics"></button></li><li><button type="button" data-i="5" aria-label="06 Supplier Network"></button></li></ol>
-      </nav>
+      <div class="sv-set" aria-hidden="true">
+          <article class="sv-set__item"><div class="sv-set__slot"></div><h2 class="sv-set__title">Quality &amp; Testing</h2><p class="sv-set__text">Parts are inspected and tested in Smith’s own accredited labs, against a plan written for the component and the application.</p></article>
+          <article class="sv-set__item"><div class="sv-set__slot"></div><h2 class="sv-set__title">Advanced Logistics</h2><p class="sv-set__text">Warehousing, consolidation and scheduled delivery that match how your production line actually runs.</p></article>
+          <article class="sv-set__item"><div class="sv-set__slot"></div><h2 class="sv-set__title">Supplier Network</h2><p class="sv-set__text">Supplier relationships built since 1984 and managed through a vendor rating and qualification system.</p></article>
+      </div>
 
       <!-- the portrait at the end of the flight opens to full screen and the quote lights up -->
       <div class="sv-voice" id="leader">
@@ -397,7 +398,7 @@
   <script src="../../vendor/gsap.min.js"></script>
   <script src="../../vendor/ScrollTrigger.min.js"></script>
   <script src="../../vendor/lenis.min.js"></script>
-  <script src="../../js/services-v3.js?v=8"></script>
+  <script src="../../js/services-v3.js?v=10"></script>
   <script src="../../js/nav-menu.js?v=6"></script>
 </body>
 </html>
