@@ -15,7 +15,7 @@
 
   <link rel="stylesheet" href="../../vendor/lenis.css" />
   <link rel="stylesheet" href="../../css/style.css?v=53" />
-  <link rel="stylesheet" href="../../css/about-v2.css?v=7" />
+  <link rel="stylesheet" href="../../css/about-v2.css?v=8" />
 </head>
 <body class="page-about">
 
@@ -239,7 +239,12 @@
     <section class="frame exp" data-nav="light" style="--fh:900">
       <div class="frame__canvas">
         <div class="exp__card" data-nav="dark">
-          <div class="exp__media"><img src="../../assets/img/about-v2/experience.jpg" alt="" loading="lazy" /></div>
+          <div class="exp__media"><img src="../../assets/img/about-v2/experience-plate.jpg" alt="" loading="lazy" /></div>
+          <!-- the relay floats over the studio backdrop and turns with scroll (CSS 3D standing in for WebGL) -->
+          <div class="exp__stage" aria-hidden="true">
+            <span class="exp__shadow" id="expShadow"></span>
+            <div class="exp__part" id="expPart"><img src="../../assets/img/about-v2/experience-relay.png" alt="" loading="lazy" /></div>
+          </div>
           <h2 class="t-h2 exp__title" id="expTitle">Get to know Smith</h2>
           <p class="exp__sub">The people, places and commitments behind 40 years of keeping supply chains moving.</p>
           <div class="explore">
@@ -342,7 +347,7 @@
   <script src="../../vendor/gsap.min.js"></script>
   <script src="../../vendor/ScrollTrigger.min.js"></script>
   <script src="../../vendor/lenis.min.js"></script>
-  <script src="../../js/about-v2.js?v=8"></script>
+  <script src="../../js/about-v2.js?v=9"></script>
   <script src="../../js/nav-menu.js?v=6"></script>
 </body>
 </html>

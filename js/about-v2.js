@@ -318,7 +318,28 @@ if (!reduceMotion) {
 lightUp($('#expTitle'));
 if (!reduceMotion) {
   gsap.fromTo('.exp__card', { clipPath: 'inset(8% 6% 8% 6% round 48px)' }, { clipPath: 'inset(0% 0% 0% 0% round 24px)', ease: 'none', scrollTrigger: { trigger: '.exp', start: 'top 90%', end: 'top 20%', scrub: true } });
-  gsap.fromTo('.exp__media img', { scale: 1.2 }, { scale: 1, ease: 'none', scrollTrigger: { trigger: '.exp', start: 'top bottom', end: 'bottom 60%', scrub: true } });
+  // the backdrop and the floating relay settle from the same zoom, so they stay registered
+  gsap.fromTo(['.exp__media img', '.exp__stage'], { scale: 1.2 }, { scale: 1, ease: 'none', transformOrigin: '50% 50%', scrollTrigger: { trigger: '.exp', start: 'top bottom', end: 'bottom 60%', scrub: true } });
+
+  /* the relay floats like a WebGL object: a slow bob with a little sway, and it
+     turns, tips and rolls as the section scrolls; the light shifts as it turns
+     and the floor shadow tightens as it rises */
+  const part = $('#expPart'), shadow = $('#expShadow');
+  const rs = { p: 0.5, sp: 0.5 };
+  ScrollTrigger.create({ trigger: '.exp', start: 'top bottom', end: 'bottom top', onUpdate: (st) => { rs.p = st.progress; } });
+  const t0 = performance.now();
+  const floatTick = () => {
+    const t = (performance.now() - t0) / 1000;
+    rs.sp += (rs.p - rs.sp) * 0.08;
+    const k = rs.sp - 0.5;
+    const bob = Math.sin(t * 0.9) * 12, sway = Math.sin(t * 0.55) * 1.8;
+    part.style.transform = `translate3d(0, ${(-bob).toFixed(1)}px, 0) rotateX(${(6 - k * 16 + sway * 0.4).toFixed(2)}deg) rotateY(${(k * 30 + sway).toFixed(2)}deg) rotateZ(${(k * -10).toFixed(2)}deg)`;
+    part.style.filter = `brightness(${(1 + k * 0.14).toFixed(3)})`;
+    const lift = (bob + 12) / 24;
+    shadow.style.opacity = (0.9 - lift * 0.35).toFixed(3);
+    shadow.style.transform = `scale(${(1.04 - lift * 0.22).toFixed(3)}, ${(1 - lift * 0.2).toFixed(3)})`;
+  };
+  ScrollTrigger.create({ trigger: '.exp', start: 'top bottom', end: 'bottom top', onToggle: (st) => (st.isActive ? gsap.ticker.add(floatTick) : gsap.ticker.remove(floatTick)) });
   gsap.from('.exp__sub', { autoAlpha: 0, y: 16, duration: 0.8, ease: 'power3.out', scrollTrigger: { trigger: '.exp', start: 'top 55%' } });
   gsap.from('.explore__title, .explore__list li', { autoAlpha: 0, x: 24, duration: 0.7, stagger: 0.07, ease: 'power3.out', scrollTrigger: { trigger: '.explore', start: 'top 85%' } });
 }
