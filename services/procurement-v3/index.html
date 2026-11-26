@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="../../vendor/lenis.css" />
   <link rel="stylesheet" href="../../css/style.css?v=53" />
   <link rel="stylesheet" href="../../css/services.css?v=9" />
-  <link rel="stylesheet" href="../../css/services-v3.css?v=12" />
+  <link rel="stylesheet" href="../../css/services-v3.css?v=13" />
 </head>
 <body class="page-svc page-sv3">
 
@@ -189,15 +189,17 @@
          (or focusing) a stage in the ticker turns it to that stage.
          ===================================================== -->
     <section class="sv-cycle" id="lifecycle" data-nav="dark">
-      <!-- full-bleed studio backdrop, held on screen while the stages scroll -->
-      <div class="sv-cycle__backdrop" aria-hidden="true"><div class="sv-cycle__plate"></div></div>
       <!-- the heading and the component stay on screen while all five stages are read -->
       <div class="sv-cycle__aside">
         <h2 class="sv-h2 sv-cycle__title" id="svCycleTitle">Support for every stage of the component lifecycle.</h2>
-        <!-- the part floats and turns with scroll (CSS 3D standing in for WebGL) -->
         <div class="sv-comp" id="svComp" aria-hidden="true">
-          <span class="sv-part__shadow" id="svPartShadow"></span>
-          <div class="sv-part" id="svPart"><img src="../../assets/img/svc/lifecycle-part.png?v=1" alt="" /></div>
+          <div class="sv-comp__world" id="svCompWorld">
+            <span class="sv-comp__shadow" id="svCompShadow"></span>
+            <img class="sv-comp__img" id="svCompAsm" src="../../assets/img/svc/comp-assembled.png?v=3" alt="" />
+            <img class="sv-comp__img sv-comp__layer" data-cx="528" data-cy="384" data-cz="-90" src="../../assets/img/svc/comp-layer-l.png?v=3" alt="" />
+            <img class="sv-comp__img sv-comp__layer" data-cx="709" data-cy="423" data-cz="0" src="../../assets/img/svc/comp-layer-m.png?v=3" alt="" />
+            <img class="sv-comp__img sv-comp__layer" data-cx="897" data-cy="481" data-cz="110" src="../../assets/img/svc/comp-layer-r.png?v=3" alt="" />
+          </div>
         </div>
       </div>
       <ol class="sv-cycle__list">
@@ -388,7 +390,7 @@
   <script src="../../vendor/gsap.min.js"></script>
   <script src="../../vendor/ScrollTrigger.min.js"></script>
   <script src="../../vendor/lenis.min.js"></script>
-  <script src="../../js/services-v3.js?v=16"></script>
+  <script src="../../js/services-v3.js?v=17"></script>
   <script src="../../js/nav-menu.js?v=6"></script>
 </body>
 </html>
