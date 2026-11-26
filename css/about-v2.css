@@ -51,12 +51,12 @@
 .dp__btn {
   width: 56px; height: 56px; border-radius: 50%;
   display: grid; place-items: center;
-  border: 1.5px solid #fff; background: transparent; color: var(--red);
+  border: 1.5px solid #fff; background: transparent; color: #fff;
   cursor: pointer; transition: background .25s, border-color .25s, opacity .25s, transform .25s;
 }
 .dp__btn svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
 .dp__btn--prev svg { transform: rotate(180deg); }
-.dp__btn:hover:not(:disabled) { background: #fff; }
+.dp__btn:hover:not(:disabled) { background: #fff; color: var(--navy); }
 .dp__btn:active:not(:disabled) { transform: scale(.94); }
 .dp__btn:disabled { opacity: .3; cursor: default; }
 .dp__btn:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
