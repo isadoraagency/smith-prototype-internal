@@ -320,6 +320,7 @@ lightUp($('#expTitle'));
 if (!reduceMotion) {
   gsap.fromTo('.exp__card', { clipPath: 'inset(8% 6% 8% 6% round 48px)' }, { clipPath: 'inset(0% 0% 0% 0% round 24px)', ease: 'none', scrollTrigger: { trigger: '.exp', start: 'top 90%', end: 'top 20%', scrub: true } });
   gsap.fromTo('.exp__media img', { scale: 1.2 }, { scale: 1, ease: 'none', scrollTrigger: { trigger: '.exp', start: 'top bottom', end: 'bottom 60%', scrub: true } });
+  gsap.from('.exp__sub', { autoAlpha: 0, y: 16, duration: 0.8, ease: 'power3.out', scrollTrigger: { trigger: '.exp', start: 'top 55%' } });
   gsap.from('.explore__title, .explore__list li', { autoAlpha: 0, x: 24, duration: 0.7, stagger: 0.07, ease: 'power3.out', scrollTrigger: { trigger: '.explore', start: 'top 85%' } });
 }
 
