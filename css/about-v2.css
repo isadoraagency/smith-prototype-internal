@@ -166,8 +166,9 @@
 .exp__media img { width: 100%; height: 100%; object-fit: cover; display: block; will-change: transform; }
 /* the relay: cut out of the render and set back where it was shot, so it can float and turn */
 .exp__stage { position: absolute; inset: 0; perspective: 1000px; perspective-origin: 47% 45%; pointer-events: none; will-change: transform; }
-.exp__part { position: absolute; left: 407px; top: 172px; width: 435px; height: 482px; transform-style: preserve-3d; will-change: transform, filter; }
-.exp__part img { width: 100%; height: 100%; display: block; }
+.exp__part { position: absolute; left: 426px; top: 192.5px; width: 392.5px; height: 457px; transform-style: preserve-3d; will-change: transform, filter; }
+/* the cut follows the case's rim; its glow is a live light that travels with it */
+.exp__part img { width: 100%; height: 100%; display: block; filter: drop-shadow(0 0 3px rgba(210, 228, 255, .55)) drop-shadow(0 0 26px rgba(120, 170, 255, .32)); }
 .exp__shadow { position: absolute; left: 474px; top: 686px; width: 334px; height: 26px; border-radius: 50%; background: rgba(0, 10, 30, .5); filter: blur(14px); will-change: transform, opacity; }
 .exp__title { position: absolute; left: 32px; top: 32px; width: 624px; }
 .exp__sub { position: absolute; left: 32px; top: 102px; width: 450px; font-size: 20px; line-height: 30px; color: #fff; }
