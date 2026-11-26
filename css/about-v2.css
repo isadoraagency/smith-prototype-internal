@@ -96,11 +96,12 @@
    2. Smith at a glance (sm-module--global-reach)
    ========================================================= */
 .glance { background: var(--navy); color: #fff; }
-.glance__title { position: absolute; left: 48px; top: 64px; }
-.glance__link { position: absolute; right: 48px; top: 79px; color: #fff; }
-.glance__stats { position: absolute; left: 48px; top: 452px; width: 1344px; height: 150px; list-style: none; margin: 0; padding: 0; display: flex; gap: 30px; }
+.glance__title { position: absolute; left: 0; top: 171px; width: 1440px; text-align: center; }
+.glance__link { position: absolute; left: 50%; top: 471px; translate: -50% 0; color: #fff; }
+.glance__link svg { color: var(--blue); }
+.glance__stats { position: absolute; left: 175px; top: 273px; width: 1090px; height: 150px; list-style: none; margin: 0; padding: 0; display: flex; gap: 30px; }
 /* board dots between the cards: a 6px blue square at the top and bottom of the gap */
-.stat { position: relative; flex: 0 0 245px; height: 150px; padding: 16px; border-radius: 16px; background: var(--paper); color: var(--navy); }
+.stat { position: relative; flex: 0 0 250px; height: 150px; padding: 16px; border-radius: 16px; background: var(--paper); color: var(--navy); }
 .stat + .stat::before, .stat + .stat::after { content: ""; position: absolute; left: -18px; width: 6px; height: 6px; background: var(--blue); }
 .stat + .stat::before { top: 0; }
 .stat + .stat::after { bottom: 0; }

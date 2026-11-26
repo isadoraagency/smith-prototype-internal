@@ -257,7 +257,7 @@ $$('.stat__value').forEach((el) => {
 });
 if (!reduceMotion) {
   gsap.from('.stat', { y: 48, autoAlpha: 0, duration: 0.9, stagger: 0.08, ease: 'power3.out', scrollTrigger: { trigger: '.glance__stats', start: 'top 85%' } });
-  gsap.from('.glance__link', { autoAlpha: 0, x: 20, duration: 0.7, ease: 'power2.out', scrollTrigger: { trigger: '.glance', start: 'top 70%' } });
+  gsap.from('.glance__link', { autoAlpha: 0, y: 16, duration: 0.7, delay: 0.3, ease: 'power2.out', scrollTrigger: { trigger: '.glance__stats', start: 'top 85%' } });
 }
 
 /* ---------------------------------------------------------
