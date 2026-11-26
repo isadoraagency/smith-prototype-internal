@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="../../vendor/lenis.css" />
   <link rel="stylesheet" href="../../css/style.css?v=53" />
   <link rel="stylesheet" href="../../css/services.css?v=9" />
-  <link rel="stylesheet" href="../../css/services-v3.css?v=8" />
+  <link rel="stylesheet" href="../../css/services-v3.css?v=9" />
 </head>
 <body class="page-svc page-sv3">
 
@@ -189,37 +189,26 @@
          (or focusing) a stage in the ticker turns it to that stage.
          ===================================================== -->
     <section class="sv-cycle" id="lifecycle" data-nav="dark">
-      <div class="sv-comp" id="svComp" aria-hidden="true">
-        <div class="sv-comp__world" id="svCompWorld">
-          <span class="sv-comp__shadow" id="svCompShadow"></span>
-          <img class="sv-comp__img" id="svCompAsm" src="../../assets/img/svc/comp-assembled.png?v=3" alt="" />
-          <img class="sv-comp__img sv-comp__layer" data-cx="528" data-cy="384" data-cz="-90" src="../../assets/img/svc/comp-layer-l.png?v=3" alt="" />
-          <img class="sv-comp__img sv-comp__layer" data-cx="709" data-cy="423" data-cz="0" src="../../assets/img/svc/comp-layer-m.png?v=3" alt="" />
-          <img class="sv-comp__img sv-comp__layer" data-cx="897" data-cy="481" data-cz="110" src="../../assets/img/svc/comp-layer-r.png?v=3" alt="" />
+      <!-- the heading and the component stay on screen while all five stages are read -->
+      <div class="sv-cycle__aside">
+        <h2 class="sv-h2 sv-cycle__title" id="svCycleTitle">Support for every stage of the component lifecycle.</h2>
+        <div class="sv-comp" id="svComp" aria-hidden="true">
+          <div class="sv-comp__world" id="svCompWorld">
+            <span class="sv-comp__shadow" id="svCompShadow"></span>
+            <img class="sv-comp__img" id="svCompAsm" src="../../assets/img/svc/comp-assembled.png?v=3" alt="" />
+            <img class="sv-comp__img sv-comp__layer" data-cx="528" data-cy="384" data-cz="-90" src="../../assets/img/svc/comp-layer-l.png?v=3" alt="" />
+            <img class="sv-comp__img sv-comp__layer" data-cx="709" data-cy="423" data-cz="0" src="../../assets/img/svc/comp-layer-m.png?v=3" alt="" />
+            <img class="sv-comp__img sv-comp__layer" data-cx="897" data-cy="481" data-cz="110" src="../../assets/img/svc/comp-layer-r.png?v=3" alt="" />
+          </div>
         </div>
       </div>
-      <span class="sv-cycle__shade" aria-hidden="true"></span>
-      <div class="sv-ticker" id="svTicker">
-        <ol class="sv-ticker__list" id="svTickerList">
-          <li><button type="button" data-i="0">Manage Product Lifecycles</button></li>
-          <li><button type="button" data-i="1" data-start>Reduce Costs</button></li>
-          <li><button type="button" data-i="2">Navigate Obsolescence</button></li>
-          <li><button type="button" data-i="3">Respond to Shortages</button></li>
-          <li><button type="button" data-i="4">Consolidate Suppliers</button></li>
-        </ol>
-        <svg class="sv-ticker__line" id="svTickerLine" viewBox="0 0 560 74" aria-hidden="true"><path d="M0 1H244C272 1 284 12 293 30L302 50C310 66 322 73 350 73H560"/></svg>
-      </div>
-      <div class="sv-cycle__copy" aria-live="polite">
-        <h2 class="sv-h2 sv-cycle__title" id="svStageTitle">Reduce costs</h2>
-        <p class="sv-cycle__text" id="svStageText">Identify opportunities to reduce component acquisition costs and improve purchase price variance without compromising quality. Smith’s global market visibility helps you evaluate sourcing opportunities as pricing and availability change.</p>
-      </div>
-      <template id="svStages">
-        <li><b>Manage product lifecycles</b><span>Plan sourcing from introduction through end of life with greater visibility into component availability and market conditions, and protect long-term production.</span></li>
-        <li><b>Reduce costs</b><span>Identify opportunities to reduce component acquisition costs and improve purchase price variance without compromising quality. Smith’s global market visibility helps you evaluate sourcing opportunities as pricing and availability change.</span></li>
-        <li><b>Navigate obsolescence</b><span>Prepare for discontinued and End-of-Life components before they disrupt production, with Last-Time Buys and open-market sourcing when traditional channels can no longer supply.</span></li>
-        <li><b>Respond to shortages</b><span>Access Smith’s global sourcing network when components become constrained, with rapid response backed by Smith’s quality processes.</span></li>
-        <li><b>Consolidate suppliers</b><span>Bring fragmented supplier relationships through one trusted global partner, with less administrative complexity and broader access to components and expertise.</span></li>
-      </template>
+      <ol class="sv-cycle__list">
+        <li class="sv-cycle__item"><h3 class="sv-cycle__name">Manage product lifecycles</h3><p class="sv-cycle__text">Plan sourcing from introduction through end of life with greater visibility into component availability and market conditions. Smith helps teams anticipate lifecycle changes, manage inventory strategically, and protect long-term production.</p></li>
+        <li class="sv-cycle__item"><h3 class="sv-cycle__name">Reduce costs</h3><p class="sv-cycle__text">Identify opportunities to reduce component acquisition costs and improve purchase price variance without compromising quality. Smith’s global market visibility helps procurement teams evaluate sourcing opportunities as pricing and availability change.</p></li>
+        <li class="sv-cycle__item"><h3 class="sv-cycle__name">Navigate obsolescence</h3><p class="sv-cycle__text">Prepare for discontinued and End-of-Life components before they disrupt production. Smith supports Last-Time Buys and open-market sourcing strategies when traditional channels can no longer supply the required component.</p></li>
+        <li class="sv-cycle__item"><h3 class="sv-cycle__name">Respond to shortages</h3><p class="sv-cycle__text">Access Smith’s global sourcing network when components become constrained or traditional supply channels cannot meet demand. Rapid response is supported by Smith’s quality processes to help protect production without introducing unnecessary sourcing risk.</p></li>
+        <li class="sv-cycle__item"><h3 class="sv-cycle__name">Consolidate suppliers</h3><p class="sv-cycle__text">Bring fragmented supplier relationships through one trusted global partner. Smith helps reduce administrative complexity while providing broader access to components, suppliers, markets, and sourcing expertise.</p></li>
+      </ol>
     </section>
 
     <!-- =====================================================
@@ -399,7 +388,7 @@
   <script src="../../vendor/gsap.min.js"></script>
   <script src="../../vendor/ScrollTrigger.min.js"></script>
   <script src="../../vendor/lenis.min.js"></script>
-  <script src="../../js/services-v3.js?v=13"></script>
+  <script src="../../js/services-v3.js?v=14"></script>
   <script src="../../js/nav-menu.js?v=6"></script>
 </body>
 </html>
